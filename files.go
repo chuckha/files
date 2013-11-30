@@ -9,7 +9,6 @@ import (
 func MustGetOrCreateFile(filename string) *os.File {
 	var f *os.File
 	f, err := os.OpenFile(filename, os.O_RDWR|os.O_APPEND, 0666)
-	defer f.Close()
 	if os.IsNotExist(err) {
 		f, err = os.Create(filename)
 		if err != nil {
